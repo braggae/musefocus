@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <!-- <style> body {margin-left: 80%;margin-right: 0;} </style> -->
+
+    <script src="/bower_components/osc.js/dist/osc-browser.js"></script>
+    <script src="/bower_components/flocking/dist/flocking-all.min.js"></script>
+    <script src="/socket-synth.js"></script>
+
+    <script src="p5.min.js"></script>
+    <script src="addons/p5.dom.min.js"></script>
+    <!--<script src="addons/p5.sound.min.js"></script>-->
+    <script src="sketch.js"></script>
+  </head>
+
+  <body>
+    <h6 hidden id="score"></h6>
+    <div class="sketch"  id="sketch-holder">
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <!-- <script src="vendor/vide/jquery.vide.min.js"></script> -->
+
+    <!-- Custom scripts for this template -->
+    <script src="js/coming-soon.min.js"></script>
+    <script>
+    var socketSynth = new example.SocketSynth();
+    </script>
+  </body>
+
+</html>
