@@ -61,7 +61,7 @@ var example = example || {};
         };
 
 
-
+/*
         this.synth = flock.synth({
             synthDef: {
                 id: "carrier",
@@ -84,7 +84,8 @@ var example = example || {};
                 mul: 0.3
             }
         });
-
+        this.synth = {};
+*/
 
     };
 
@@ -98,15 +99,15 @@ var example = example || {};
     };
 
     example.SocketSynth.prototype.play = function () {
-        if (!flock.enviro.shared) {
+        /*if (!flock.enviro.shared) {
             flock.init();
-        }
+        }*/
 
-        this.synth.play();
+        //this.synth.play();
     };
 
     example.SocketSynth.prototype.pause = function () {
-        this.synth.pause();
+        //this.synth.pause();
     };
 
     example.SocketSynth.prototype.mapMessage = function (oscMessage) {
@@ -122,7 +123,7 @@ var example = example || {};
 
         if (transformSpec) {
             var transformed = transformSpec.transform(value);
-            this.synth.set(transformSpec.inputPath, transformed);
+            //this.synth.set(transformSpec.inputPath, transformed);
         }
         var alpha_absolute = '/muse/elements/alpha_absolute';
         if (address == alpha_absolute) {

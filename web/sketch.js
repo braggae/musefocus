@@ -1,3 +1,41 @@
+var FocusState = function(){
+
+  var FOCUS_BRAKEPOINT = 4.0;
+
+  var currentFocusState = false;
+  var prevFocusState = true;
+
+  this.getScoreValue = function(){
+    return parseFloat(document.getElementById("score").textContent) * 1;
+  }
+
+  this.getCurrentFocusState = function(){
+    return currentFocusState;
+  }
+
+  this.getPrevFocusState = function(){
+    return prevFocusState;
+  }
+
+  this.updateFocusState = function(){
+    prevFocusState = currentFocusState;
+    currentFocusState = (this.getScoreValue() >= FOCUS_BRAKEPOINT);
+  }
+
+  this.isFocusStateChanged = function(){
+    this.updateFocusState();
+    //foccus state stayed the same
+    if(prevFocusState === currentFocusState) return 0;
+    //focus state became positive
+    else if(currentFocusState) return 1;
+    //focus state became negative
+    return -1;
+  }
+
+  return this;
+};
+var focusState = new FocusState();
+
 // center point
 var centerX = 0.0, centerY = 0.0;
 
@@ -53,7 +91,12 @@ function draw() {
   drawShape();
   drawPerfectCircle();
   moveShape();
+  var focusStateStatus = focusState.isFocusStateChanged();
+  if(focusStateStatus != 0){
+    alert(focusStateStatus);
+  }
 }
+
 function drawPerfectCircle() {
   ellipseMode(RADIUS); // Set ellipseMode to RADIUS
   stroke('rgba(0,255,0,0.25)');
@@ -63,6 +106,7 @@ function drawPerfectCircle() {
   
 
 }
+
 function drawShape() {
   //  calculate node  starting locations
   for (var i=0; i<nodes; i++){
