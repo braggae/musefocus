@@ -58,6 +58,9 @@ var frequency = [];
 // soft-body dynamics
 var organicConstant = 1.0;
 
+//Init audio signal
+var focusChangeSound = new Audio('audio/stairs.mp3');
+
 function setup() {
   var canvas = createCanvas(800, 600);
 
@@ -93,7 +96,8 @@ function draw() {
   moveShape();
   var focusStateStatus = focusState.isFocusStateChanged();
   if(focusStateStatus != 0){
-    alert(focusStateStatus);
+//    alert(focusStateStatus);
+  focusChangeSound.play();
   }
 }
 
@@ -103,7 +107,6 @@ function drawPerfectCircle() {
   strokeWeight(2);
   ellipse(centerX, centerY, radius,radius); // Draw white ellipse using RADIUS mode
   noStroke();
-  
 
 }
 
